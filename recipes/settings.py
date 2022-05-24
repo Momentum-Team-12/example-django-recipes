@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "django_extensions",
     "debug_toolbar",
     "core",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -177,3 +178,10 @@ LOGIN_REDIRECT_URL = "/"
 # heroku settings
 django_on_heroku.settings(locals())
 del DATABASES["default"]["OPTIONS"]["sslmode"]
+
+# DRF
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly"
+    ]
+}
